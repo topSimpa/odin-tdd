@@ -12,5 +12,9 @@ export default defineConfig([
         ...globals.jest,
       },
     },
+    rules: {
+      "no-used-vars": "warn",
+      "no-undef": "warn",
+    },
   },
 ]);
