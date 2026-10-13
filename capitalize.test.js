@@ -1,5 +1,4 @@
 //capitalize.test.js
-import { test, expect } from "@jest/globals";
 import capitalize from "./capitalize.js";
 
 test("capitalize default export is a function", async () => {
