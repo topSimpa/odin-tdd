@@ -5,36 +5,18 @@ test("caesarCipher is a function", () => {
 });
 
 test("caesarCipher shift string by shift factor", () => {
-  const received = caesarCipher("abc", 1);
-  const expected = "bcd";
+  const testCases = [
+    { str: "abc", shift: 1, expected: "bcd" },
+    { str: "kml", shift: 2, expected: "mon" },
+    { str: "xyz", shift: 3, expected: "abc" },
+    { str: "HeLLo", shift: 3, expected: "KhOOr" },
+    { str: "Hello, World!", shift: 3, expected: "Khoor, Zruog!" },
+    { str: "AMZ", shift: 7, expected: "HTG" },
+  ];
 
-  expect(received).toBe(expected);
-});
+  testCases.forEach(({ str, shift, expected }) => {
+    const received = caesarCipher(str, shift);
 
-test("caesarCipher shift string by shift factor", () => {
-  const received = caesarCipher("kml", 2);
-  const expected = "mon";
-
-  expect(received).toBe(expected);
-});
-
-test("caesarCipher shift string by shift factor", () => {
-  const received = caesarCipher("xyz", 3);
-  const expected = "abc";
-
-  expect(received).toBe(expected);
-});
-
-test("caesarCipher preserves case", () => {
-  const received = caesarCipher("HeLLo", 3);
-  const expected = "KhOOr";
-
-  expect(received).toBe(expected);
-});
-
-test("caesarCipher preserve non alphabetical characters", () => {
-  const received = caesarCipher("Hello, World!", 3);
-  const expected = "Khoor, Zruog!";
-
-  expect(received).toBe(expected);
+    expect(received).toBe(expected);
+  });
 });
